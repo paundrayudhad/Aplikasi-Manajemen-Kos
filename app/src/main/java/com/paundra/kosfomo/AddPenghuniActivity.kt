@@ -36,6 +36,9 @@ class AddPenghuniActivity : AppCompatActivity() {
             } else {
                 val penghuniBaru = Penghuni(null, nama, nohp)
                 val newPeople = myRef.push()
+                val idPenghuni = newPeople.key.toString()
+
+                penghuniBaru.id = idPenghuni
                 newPeople.setValue(penghuniBaru)
                     .addOnSuccessListener {
                         Toast.makeText(this, "Berhasil Disimpan", Toast.LENGTH_SHORT).show()

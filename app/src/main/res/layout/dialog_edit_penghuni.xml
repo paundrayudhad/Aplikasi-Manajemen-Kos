@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
+    android:padding="10dp"
     android:layout_height="match_parent">
     <EditText
         android:id="@+id/etEditNama"
@@ -15,9 +16,4 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="No HP"/>
-    <Button
-        android:id="@+id/btnEditData"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="edit" />
 </LinearLayout>
