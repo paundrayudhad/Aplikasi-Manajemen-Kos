@@ -13,6 +13,18 @@
         android:theme="@style/Theme.KosFomo"
         tools:targetApi="31">
         <activity
+            android:name=".ActivityAddKamar"
+            android:exported="false" />
+        <activity
+            android:name=".KamarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityKamar"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity2"
+            android:exported="false" />
+        <activity
             android:name=".AddPenghuniActivity"
             android:exported="false" />
         <activity
