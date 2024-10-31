@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "331463419249",
+    "project_id": "fomokos-4320e",
+    "storage_bucket": "fomokos-4320e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:331463419249:android:51aa33aeeba85daa6cc2d0",
+        "android_client_info": {
+          "package_name": "com.paundra.kosfomo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTAeS6eEY9tHzytok-X4olzghE1jwcYrY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
