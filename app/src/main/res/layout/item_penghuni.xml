@@ -34,11 +34,26 @@
         android:orientation="horizontal"
         android:layout_gravity="center"
         android:layout_weight="2">
-        <Button
-            android:id="@+id/btnEdit"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Edit Data"/>
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/btnEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:icon="@android:drawable/ic_menu_edit" />
+
+            <Button
+                android:id="@+id/btnDelete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:icon="@android:drawable/ic_menu_delete"/>
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

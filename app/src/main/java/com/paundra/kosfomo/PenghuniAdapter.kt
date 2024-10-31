@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.FirebaseDatabase
 
@@ -21,6 +22,7 @@ class PenghuniAdapter(
         val tvNamaPenghuni: TextView = itemView.findViewById(R.id.tvNamaPenghuni)
         val tvKontakPenghuni: TextView = itemView.findViewById(R.id.tvKontakPenghuni)
         val btnEdit: Button = itemView.findViewById(R.id.btnEdit)
+        val btnDelete: Button = itemView.findViewById(R.id.btnDelete)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PenghuniViewHolder {
@@ -39,12 +41,15 @@ class PenghuniAdapter(
         holder.btnEdit.setOnClickListener {
             showEditDialog(penghuni, position)
         }
+        holder.btnDelete.setOnClickListener {
+            showDeleteConfirmation(penghuni, position)
+        }
     }
 
     override fun getItemCount(): Int = penghuniList.size
 
     private fun showEditDialog(penghuni: Penghuni, position: Int) {
-        val dialog = androidx.appcompat.app.AlertDialog.Builder(context)
+        val dialog = AlertDialog.Builder(context)
         val dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_edit_penghuni, null)
 
         val etNama = dialogView.findViewById<EditText>(R.id.etEditNama)
@@ -88,6 +93,42 @@ class PenghuniAdapter(
                 Toast.makeText(context, "Gagal mengupdate data", Toast.LENGTH_SHORT).show()
             }
     }
+    private fun showDeleteConfirmation(penghuni: Penghuni, position: Int) {
+        AlertDialog.Builder(context)
+            .setTitle("Hapus Data")
+            .setMessage("Apakah Anda yakin ingin menghapus data ${penghuni.nama}?")
+            .setPositiveButton("Ya") { _, _ ->
+                deletePenghuni(penghuni, position)
+            }
+            .setNegativeButton("Tidak", null)
+            .show()
+    }
+    private fun deletePenghuni(penghuni: Penghuni, position: Int) {
+        val myRef = database.getReference("penghuni")
+
+        myRef.child(penghuni.id.toString()).removeValue()
+            .addOnSuccessListener {
+                // Refresh data after deletion to avoid data inconsistencies
+                refreshDataFromFirebase()
+                Toast.makeText(context, "Data berhasil dihapus", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener {
+                Toast.makeText(context, "Gagal menghapus data", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+    private fun refreshDataFromFirebase() {
+        val myRef = database.getReference("penghuni")
+        myRef.get().addOnSuccessListener { snapshot ->
+            penghuniList.clear()
+            for (dataSnapshot in snapshot.children) {
+                val penghuni = dataSnapshot.getValue(Penghuni::class.java)
+                penghuni?.let { penghuniList.add(it) }
+            }
+            notifyDataSetChanged()
+        }
+    }
+
 
     fun updateList(newList: List<Penghuni>) {
         penghuniList.clear()
