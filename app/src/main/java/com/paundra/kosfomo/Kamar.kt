@@ -1,6 +1,6 @@
 package com.paundra.kosfomo
 
-class Kamar (
+class Kamar(
    var idKamar: String? = "",
    var namaKamar: String? = "",
    var penghuni: String? = "",

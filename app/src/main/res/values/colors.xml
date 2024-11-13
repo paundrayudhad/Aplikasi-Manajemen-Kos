@@ -2,6 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="background">#001D3D</color>
+    <color name="background">#DBE4EE</color>
     <color name="yellow">#FFD60A</color>
+    <color name="btndelete">#6B0504</color>
+    <color name="btnedit">#E6AF2E</color>
 </resources>

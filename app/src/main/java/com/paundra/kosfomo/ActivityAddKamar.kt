@@ -10,7 +10,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.paundra.kosfomo.R
 
 class ActivityAddKamar : AppCompatActivity() {
 
@@ -63,7 +62,7 @@ class ActivityAddKamar : AppCompatActivity() {
         val kamarId = database.child("kamar").push().key ?: return
 
         // Create a data object
-        val kamar = Kamar(kamarId, namaKamar, penghuni, harga.toString(), status)
+        val kamar = Kamar(kamarId, namaKamar, penghuni, status, harga)
 
         // Write data to Firebase Realtime Database
         database.child("kamar").child(kamarId).setValue(kamar)

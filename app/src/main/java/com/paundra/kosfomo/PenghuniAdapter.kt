@@ -117,6 +117,8 @@ class PenghuniAdapter(
             }
     }
 
+
+
     private fun refreshDataFromFirebase() {
         val myRef = database.getReference("penghuni")
         myRef.get().addOnSuccessListener { snapshot ->

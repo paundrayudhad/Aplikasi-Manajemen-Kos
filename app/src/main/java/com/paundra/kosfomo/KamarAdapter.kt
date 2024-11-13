@@ -4,7 +4,10 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.EditText
+import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -22,6 +25,7 @@ class KamarAdapter(
         val statusTextView: TextView = itemView.findViewById(R.id.tvStatusKamar)
         val hargaTextView: TextView = itemView.findViewById(R.id.tvHargaKamar)
         val btnDelete: Button = itemView.findViewById(R.id.btnDelete)
+        val btnEdit: Button = itemView.findViewById(R.id.btnEdit)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): KamarViewHolder {
@@ -32,9 +36,16 @@ class KamarAdapter(
     override fun onBindViewHolder(holder: KamarViewHolder, position: Int) {
         val kamar = kamarList[position]
         holder.namaKamarTextView.text = kamar.namaKamar
-        holder.penghuniTextView.text = kamar.penghuni
+        if(kamar.penghuni == "Kosong"){
+        holder.penghuniTextView.text = "Belum Digunakan"
+        } else {
+            holder.penghuniTextView.text = kamar.penghuni
+        }
         holder.statusTextView.text = kamar.status
         holder.hargaTextView.text = kamar.harga.toString()
+        holder.btnEdit.setOnClickListener {
+            showEditDialog(kamar, position)
+        }
         holder.btnDelete.setOnClickListener {
             showDeleteConfirmation(kamar, position)
         }
@@ -42,6 +53,65 @@ class KamarAdapter(
 
     override fun getItemCount(): Int {
         return kamarList.size
+    }
+
+    private fun showEditDialog(kamar: Kamar, position: Int) {
+        val dialog = AlertDialog.Builder(context)
+        val dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_edit_kamar, null)
+
+        val etNamaKamar = dialogView.findViewById<EditText>(R.id.etEditNamaKamar)
+        val spPenghuniKamar = dialogView.findViewById<Spinner>(R.id.spEditPenghuniKamar)
+        val spStatusKamar = dialogView.findViewById<Spinner>(R.id.spEditStatusKamar)
+        val etHargaKamar = dialogView.findViewById<EditText>(R.id.etEditHargaKamar)
+
+        val adapterStatus = ArrayAdapter(context, android.R.layout.simple_spinner_item, context.resources.getStringArray(R.array.status))
+        adapterStatus.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spStatusKamar.adapter = adapterStatus
+
+        // Isi form dengan data yang ada
+        etNamaKamar.setText(kamar.namaKamar)
+        spStatusKamar.setSelection(context.resources.getStringArray(R.array.status).indexOf(kamar.status))
+        etHargaKamar.setText(kamar.harga.toString())
+
+        // Load penghuni data from Firebase
+        loadPenghuniData(spPenghuniKamar, kamar.penghuni)
+
+        dialog.setView(dialogView)
+            .setTitle("Edit Data Penghuni")
+            .setPositiveButton("Simpan") { _, _ ->
+                // Pastikan ID tetap sama saat update
+                if (kamar.idKamar!!.isNotEmpty()) {
+                    val updatedKamar = Kamar(
+                        idKamar = kamar.idKamar,
+                        namaKamar = etNamaKamar.text.toString(),
+                        penghuni = spPenghuniKamar.selectedItem.toString(),
+                        status = spStatusKamar.selectedItem.toString(),
+                        harga = etHargaKamar.text.toString()
+                    )
+                    updateKamar(updatedKamar, position)
+                } else {
+                    Toast.makeText(context, "ID Penghuni tidak ditemukan", Toast.LENGTH_SHORT).show()
+                }
+            }
+            .setNegativeButton("Batal", null)
+            .show()
+    }
+
+
+    private fun updateKamar(kamar: Kamar, position: Int) {
+        val myRef = database.getReference("kamar")
+
+        // Update menggunakan ID yang ada
+        myRef.child(kamar.idKamar.toString()).setValue(kamar)
+            .addOnSuccessListener {
+                // Update local list
+                kamarList[position] = kamar
+                notifyItemChanged(position)
+                Toast.makeText(context, "Data berhasil diupdate", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener {
+                Toast.makeText(context, "Gagal mengupdate data", Toast.LENGTH_SHORT).show()
+            }
     }
 
     private fun showDeleteConfirmation(kamar: Kamar, position: Int) {
@@ -67,6 +137,30 @@ class KamarAdapter(
                 Toast.makeText(context, "Gagal menghapus data", Toast.LENGTH_SHORT).show()
             }
     }
+    private fun loadPenghuniData(spPenghuniKamar: Spinner, selectedPenghuni: String?) {
+        val penghuniList = mutableListOf<String>()
+        val penghuniRef = database.getReference("penghuni")
+
+        penghuniRef.get().addOnSuccessListener { snapshot ->
+            snapshot.children.forEach { dataSnapshot ->
+                val penghuniName = dataSnapshot.child("nama").getValue(String::class.java)
+                penghuniName?.let { penghuniList.add(it) }
+            }
+
+            val adapterPenghuni = ArrayAdapter(context, android.R.layout.simple_spinner_item, penghuniList)
+            adapterPenghuni.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spPenghuniKamar.adapter = adapterPenghuni
+
+            // Set selected item if editing
+            selectedPenghuni?.let {
+                val position = penghuniList.indexOf(it)
+                if (position >= 0) spPenghuniKamar.setSelection(position)
+            }
+        }.addOnFailureListener {
+            Toast.makeText(context, "Gagal memuat data penghuni", Toast.LENGTH_SHORT).show()
+        }
+    }
+
 
     private fun refreshDataFromFirebase() {
         val myRef = database.getReference("kamar")

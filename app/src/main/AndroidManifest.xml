@@ -13,6 +13,9 @@
         android:theme="@style/Theme.KosFomo"
         tools:targetApi="31">
         <activity
+            android:name=".PembayaranActivity"
+            android:exported="false" />
+        <activity
             android:name=".ActivityAddKamar"
             android:exported="false" />
         <activity

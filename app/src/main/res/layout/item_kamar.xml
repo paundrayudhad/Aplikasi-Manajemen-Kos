@@ -3,7 +3,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:backgroundTint="@color/yellow"
+        android:backgroundTint="#3E7CB1"
         app:cardCornerRadius="12dp"
         android:layout_margin="10dp">
         <LinearLayout
@@ -17,65 +17,67 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_weight="1">
+
                 <TextView
                     android:id="@+id/tvNamaKamar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Nama Kamar"
+                    android:textColor="@color/white"
                     android:textSize="18sp"
-                    android:textColor="@color/black"
                     android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/tvKontakPenghuni"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Penghuni"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="16sp" />
+
                 <TextView
                     android:id="@+id/tvStatusKamar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Penghuni"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="16sp" />
+
                 <TextView
                     android:id="@+id/tvHargaKamar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Rp 1000000"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="16sp" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center"
-                android:layout_weight="2">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
-
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="horizontal">
                     <Button
                         android:id="@+id/btnEdit"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:backgroundTint="#436436"
-                        app:iconTint="@color/white"
-                        app:icon="@drawable/edit_penghuni" />
+                        android:backgroundTint="#E6AF2E"
+                        android:text="Edit"
+                        android:textColor="@color/white"
+                        android:drawableTint="@color/white"
+                        android:drawableEnd="@drawable/edit"/>
 
                     <Button
                         android:id="@+id/btnDelete"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:backgroundTint="#6F1D1B"
-                        app:iconTint="@color/white"
-                        app:icon="@drawable/delete" />
+                        android:backgroundTint="#6B0504"
+                        android:textColor="@color/white"
+                        android:drawableTint="@color/white"
+                        android:text="Hapus"
+                        android:drawableEnd="@drawable/delete"/>
+
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

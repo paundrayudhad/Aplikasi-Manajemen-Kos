@@ -16,8 +16,8 @@
             android:id="@+id/btnAddKamar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:backgroundTint="@color/white"
+            android:textColor="@color/white"
+            android:backgroundTint="#001514"
             android:text="Tambah Kamar"
             android:layout_margin="16dp"/>
 
