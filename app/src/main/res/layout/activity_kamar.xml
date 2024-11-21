@@ -15,17 +15,19 @@
         <Button
             android:id="@+id/btnAddKamar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:backgroundTint="#001514"
-            android:text="Tambah Kamar"
-            android:layout_margin="16dp"/>
+            android:layout_height="48dp"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/blue"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:background="@drawable/shadow_background"
+            android:text="TAMBAH KAMAR"
+            android:layout_margin="10dp"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewKamar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
             tools:listitem="@layout/item_kamar"/>
 
     </LinearLayout>

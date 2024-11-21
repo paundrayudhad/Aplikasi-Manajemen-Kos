@@ -24,7 +24,6 @@ class ActivityAddKamar : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_add_kamar)
 
-
         // Initialize Firebase Database reference
         database = FirebaseDatabase.getInstance("https://fomokos-4320e-default-rtdb.asia-southeast1.firebasedatabase.app/").reference
 

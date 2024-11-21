@@ -17,7 +17,8 @@ import com.google.firebase.database.FirebaseDatabase
 class KamarAdapter(
     private val context: Context,
     private var kamarList: MutableList<Kamar>,
-    private val database: FirebaseDatabase) : RecyclerView.Adapter<KamarAdapter.KamarViewHolder>() {
+    private val database: FirebaseDatabase
+) : RecyclerView.Adapter<KamarAdapter.KamarViewHolder>() {
 
     class KamarViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val namaKamarTextView: TextView = itemView.findViewById(R.id.tvNamaKamar)
@@ -29,15 +30,16 @@ class KamarAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): KamarViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_kamar, parent, false)
+        val itemView =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_kamar, parent, false)
         return KamarViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: KamarViewHolder, position: Int) {
         val kamar = kamarList[position]
         holder.namaKamarTextView.text = kamar.namaKamar
-        if(kamar.penghuni == "Kosong"){
-        holder.penghuniTextView.text = "Belum Digunakan"
+        if (kamar.penghuni == "Kosong") {
+            holder.penghuniTextView.text = "Belum Digunakan"
         } else {
             holder.penghuniTextView.text = kamar.penghuni
         }
@@ -64,13 +66,19 @@ class KamarAdapter(
         val spStatusKamar = dialogView.findViewById<Spinner>(R.id.spEditStatusKamar)
         val etHargaKamar = dialogView.findViewById<EditText>(R.id.etEditHargaKamar)
 
-        val adapterStatus = ArrayAdapter(context, android.R.layout.simple_spinner_item, context.resources.getStringArray(R.array.status))
+        val adapterStatus = ArrayAdapter(
+            context,
+            android.R.layout.simple_spinner_item,
+            context.resources.getStringArray(R.array.status)
+        )
         adapterStatus.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spStatusKamar.adapter = adapterStatus
 
         // Isi form dengan data yang ada
         etNamaKamar.setText(kamar.namaKamar)
-        spStatusKamar.setSelection(context.resources.getStringArray(R.array.status).indexOf(kamar.status))
+        spStatusKamar.setSelection(
+            context.resources.getStringArray(R.array.status).indexOf(kamar.status)
+        )
         etHargaKamar.setText(kamar.harga.toString())
 
         // Load penghuni data from Firebase
@@ -90,7 +98,8 @@ class KamarAdapter(
                     )
                     updateKamar(updatedKamar, position)
                 } else {
-                    Toast.makeText(context, "ID Penghuni tidak ditemukan", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "ID Penghuni tidak ditemukan", Toast.LENGTH_SHORT)
+                        .show()
                 }
             }
             .setNegativeButton("Batal", null)
@@ -124,6 +133,7 @@ class KamarAdapter(
             .setNegativeButton("Tidak", null)
             .show()
     }
+
     private fun deleteKamar(kamar: Kamar, position: Int) {
         val myRef = database.getReference("kamar")
 
@@ -137,6 +147,7 @@ class KamarAdapter(
                 Toast.makeText(context, "Gagal menghapus data", Toast.LENGTH_SHORT).show()
             }
     }
+
     private fun loadPenghuniData(spPenghuniKamar: Spinner, selectedPenghuni: String?) {
         val penghuniList = mutableListOf<String>()
         val penghuniRef = database.getReference("penghuni")
@@ -147,11 +158,11 @@ class KamarAdapter(
                 penghuniName?.let { penghuniList.add(it) }
             }
 
-            val adapterPenghuni = ArrayAdapter(context, android.R.layout.simple_spinner_item, penghuniList)
+            val adapterPenghuni =
+                ArrayAdapter(context, android.R.layout.simple_spinner_item, penghuniList)
             adapterPenghuni.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             spPenghuniKamar.adapter = adapterPenghuni
 
-            // Set selected item if editing
             selectedPenghuni?.let {
                 val position = penghuniList.indexOf(it)
                 if (position >= 0) spPenghuniKamar.setSelection(position)

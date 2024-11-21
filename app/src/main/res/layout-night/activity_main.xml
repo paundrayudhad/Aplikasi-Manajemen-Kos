@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="#121212"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -21,7 +21,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/waves_gradient"
+                android:src="@drawable/waves_gradient_dark"
                 android:scaleType="centerCrop"/>
 
             <LinearLayout
@@ -36,7 +36,7 @@
                     android:layout_height="wrap_content"
                     android:text="Selamat Datang"
                     android:textSize="28sp"
-                    android:textColor="@android:color/white"
+                    android:textColor="#FFFFFF"
                     android:textStyle="bold"/>
 
                 <TextView
@@ -44,7 +44,7 @@
                     android:layout_height="wrap_content"
                     android:text="di Aplikasi Kost Manage"
                     android:textSize="20sp"
-                    android:textColor="@android:color/white"
+                    android:textColor="#E0E0E0"
                     android:layout_marginTop="8dp"/>
             </LinearLayout>
         </FrameLayout>
@@ -66,7 +66,7 @@
                 android:layout_marginEnd="8dp"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="8dp"
-                android:backgroundTint="#FF1F1F">
+                android:backgroundTint="#2C2C2C">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -79,7 +79,7 @@
                         android:layout_width="64dp"
                         android:layout_height="64dp"
                         android:src="@drawable/ic_residents"
-                        app:tint="@android:color/white" />
+                        app:tint="#FF6B6B" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -87,7 +87,7 @@
                         android:text="Manajemen\nPenghuni"
                         android:textAlignment="center"
                         android:textSize="18sp"
-                        android:textColor="@android:color/white"
+                        android:textColor="#FFFFFF"
                         android:textStyle="bold"
                         android:layout_marginTop="16dp"/>
                 </LinearLayout>
@@ -102,7 +102,7 @@
                 android:layout_marginStart="8dp"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="8dp"
-                android:backgroundTint="#2C89F3">
+                android:backgroundTint="#1E3A8A">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -115,7 +115,7 @@
                         android:layout_width="64dp"
                         android:layout_height="64dp"
                         android:src="@drawable/ic_rooms"
-                        app:tint="@android:color/white" />
+                        app:tint="#4DABF7" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -123,7 +123,7 @@
                         android:text="Manajemen\nKamar"
                         android:textAlignment="center"
                         android:textSize="18sp"
-                        android:textColor="@android:color/white"
+                        android:textColor="#FFFFFF"
                         android:textStyle="bold"
                         android:layout_marginTop="16dp"/>
                 </LinearLayout>
@@ -147,7 +147,7 @@
                 android:layout_marginEnd="8dp"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="8dp"
-                android:backgroundTint="#F57F17">
+                android:backgroundTint="#78350F">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -160,7 +160,7 @@
                         android:layout_width="64dp"
                         android:layout_height="64dp"
                         android:src="@drawable/ic_bill"
-                        app:tint="@android:color/white" />
+                        app:tint="#FFA726" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -168,7 +168,7 @@
                         android:text="Buat\nTagihan"
                         android:textAlignment="center"
                         android:textSize="18sp"
-                        android:textColor="@android:color/white"
+                        android:textColor="#FFFFFF"
                         android:textStyle="bold"
                         android:layout_marginTop="16dp"/>
                 </LinearLayout>
@@ -183,7 +183,7 @@
                 android:layout_marginStart="8dp"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="8dp"
-                android:backgroundTint="#4CAF50">
+                android:backgroundTint="#1E4620">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -196,7 +196,7 @@
                         android:layout_width="64dp"
                         android:layout_height="64dp"
                         android:src="@drawable/ic_report"
-                        app:tint="@android:color/white"/>
+                        app:tint="#4CAF50"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -204,7 +204,7 @@
                         android:text="Laporan\nKeuangan"
                         android:textAlignment="center"
                         android:textSize="18sp"
-                        android:textColor="@android:color/white"
+                        android:textColor="#FFFFFF"
                         android:textStyle="bold"
                         android:layout_marginTop="16dp"/>
                 </LinearLayout>

@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="background">#DBE4EE</color>
+    <color name="white">#FFFFFF</color>
+    <color name="blue">#1E90FF</color>
+    <color name="pink">#FF69B4</color>
+    <color name="black">#000000</color>
+    <color name="shadow">#C0C0C0</color>
+    <color name="background">#daf5f0</color>
     <color name="yellow">#FFD60A</color>
     <color name="btndelete">#6B0504</color>
     <color name="btnedit">#E6AF2E</color>
+    <color name="divider">#DBE4EE</color>
+    <color name="background_light">#F5F5F5</color>
+    <color name="primary_red">#FF1F1F</color>
+    <color name="primary_blue">#2C89F3</color>
+    <color name="primary_orange">#F57F17</color>
 </resources>

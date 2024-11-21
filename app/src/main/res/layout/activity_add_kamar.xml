@@ -35,7 +35,6 @@
         android:layout_height="50dp"
         android:inputType="phone"
         android:background="@drawable/edittext_background"
-        android:hint="penghuni"
         android:layout_margin="10dp"
         android:textSize="16sp"
         android:padding="10dp"

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background">#1A1A1A</color> <!-- Warna latar belakang yang lebih gelap -->
+    <color name="yellow">#FFD60A</color> <!-- Tidak diubah, bisa tetap dipakai untuk sorotan atau aksen -->
+    <color name="btndelete">#8B1E1E</color> <!-- Warna tombol hapus yang lebih gelap -->
+    <color name="btnedit">#D1A534</color> <!-- Warna tombol edit yang lebih lembut untuk mode malam -->
+</resources>

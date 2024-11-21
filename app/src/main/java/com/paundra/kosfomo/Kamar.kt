@@ -7,3 +7,8 @@ class Kamar(
    var status: String? = "",
    var harga: String? = ""
 )
+{
+   override fun toString(): String {
+      return namaKamar ?: "Tidak diketahui" // Tampilkan nama, atau "Tidak diketahui" jika null
+   }
+}
