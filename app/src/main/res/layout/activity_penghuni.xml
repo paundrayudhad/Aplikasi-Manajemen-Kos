@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:textColor="@color/white"
-        android:backgroundTint="#001514"
+        android:backgroundTint="@color/primary_blue"
         android:text="Add Penghuni"
         android:layout_margin="16dp"/>
 

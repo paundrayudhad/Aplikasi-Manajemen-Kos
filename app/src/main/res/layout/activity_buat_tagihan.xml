@@ -18,7 +18,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/waves_gradient"
+                style="@style/bgheader"
                 android:scaleType="centerCrop"/>
 
             <LinearLayout
@@ -33,7 +33,7 @@
                     android:layout_height="wrap_content"
                     android:text="Buat Tagihan"
                     android:textSize="28sp"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/textblack"
                     android:textStyle="bold"/>
             </LinearLayout>
         </FrameLayout>
@@ -92,6 +92,7 @@
         <Button
             android:id="@+id/btnTambahTagihan"
             android:layout_width="match_parent"
+            android:textColor="@color/white"
             android:layout_height="60dp"
             android:backgroundTint="@color/primary_red"
             android:text="Tambah Tagihan"

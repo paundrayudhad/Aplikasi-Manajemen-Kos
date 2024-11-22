@@ -14,4 +14,6 @@
     <color name="primary_red">#FF1F1F</color>
     <color name="primary_blue">#2C89F3</color>
     <color name="primary_orange">#F57F17</color>
+    <color name="textwhite">#FFFFFF</color>
+    <color name="textblack">#000000</color>
 </resources>

@@ -4,4 +4,6 @@
     <color name="yellow">#FFD60A</color> <!-- Tidak diubah, bisa tetap dipakai untuk sorotan atau aksen -->
     <color name="btndelete">#8B1E1E</color> <!-- Warna tombol hapus yang lebih gelap -->
     <color name="btnedit">#D1A534</color> <!-- Warna tombol edit yang lebih lembut untuk mode malam -->
+    <color name="textwhite">#000000</color>
+    <color name="textblack">#ffffff</color>
 </resources>

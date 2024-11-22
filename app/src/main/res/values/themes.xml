@@ -15,4 +15,7 @@
     <style name="Theme.KosFomo.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.KosFomo.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="bgheader">
+        <item name="android:src">@drawable/waves_gradient</item>
+    </style>
 </resources>

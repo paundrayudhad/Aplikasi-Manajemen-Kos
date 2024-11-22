@@ -21,7 +21,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/waves_gradient"
+                style="@style/bgheader"
                 android:scaleType="centerCrop"/>
 
             <LinearLayout
@@ -36,7 +36,7 @@
                     android:layout_height="wrap_content"
                     android:text="Selamat Datang"
                     android:textSize="28sp"
-                    android:textColor="@android:color/white"
+                    android:textColor="@android:color/black"
                     android:textStyle="bold"/>
 
                 <TextView
@@ -44,7 +44,7 @@
                     android:layout_height="wrap_content"
                     android:text="di Aplikasi Kost Manage"
                     android:textSize="20sp"
-                    android:textColor="@android:color/white"
+                    android:textColor="@android:color/black"
                     android:layout_marginTop="8dp"/>
             </LinearLayout>
         </FrameLayout>
