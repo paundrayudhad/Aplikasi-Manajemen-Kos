@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tagihanRef: DatabaseReference
     lateinit var cvManagepenghuni : CardView
     lateinit var cvManageKamar : CardView
+    lateinit var cvRiwayat : CardView
     lateinit var cvBuatTagihan : CardView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +42,11 @@ class MainActivity : AppCompatActivity() {
         cvBuatTagihan.setOnClickListener{
             val keMenuBuat = Intent(this@MainActivity, BuatTagihanActivity::class.java)
             startActivity(keMenuBuat)
+        }
+        cvRiwayat = findViewById(R.id.cvBuatTagihan2)
+        cvRiwayat.setOnClickListener{
+            val keMenuRiwayat = Intent(this@MainActivity, TagihanActivity::class.java)
+            startActivity(keMenuRiwayat)
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
