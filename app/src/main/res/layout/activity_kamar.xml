@@ -23,6 +23,16 @@
             android:background="@drawable/shadow_background"
             android:text="TAMBAH KAMAR"
             android:layout_margin="10dp"/>
+        <TextView
+            android:id="@+id/tvEmptyData2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="Tidak Ada Data Disini Silahkan Tambah Terlebih Dahulu"
+            android:textSize="24sp"
+            android:visibility="gone"
+            android:textColor="@color/textblack" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewKamar"

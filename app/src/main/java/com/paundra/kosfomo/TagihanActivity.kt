@@ -1,16 +1,20 @@
 package com.paundra.kosfomo
 
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
 
+
 class TagihanActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: TagihanAdapter
+    private lateinit var tvEmptyData: TextView
     private val listTagihan = mutableListOf<ModelTagihan>()
 
     // Firebase reference
@@ -24,6 +28,7 @@ class TagihanActivity : AppCompatActivity() {
         setContentView(R.layout.activity_tagihan)
 
         recyclerView = findViewById(R.id.rvTagihan)
+        tvEmptyData = findViewById(R.id.tvEmptyData)
         adapter = TagihanAdapter(
             context = this,
             listTagihan = listTagihan,
@@ -49,9 +54,20 @@ class TagihanActivity : AppCompatActivity() {
         myRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 listTagihan.clear() // Clear current list
-                for (data in snapshot.children) {
-                    val tagihan = data.getValue(ModelTagihan::class.java)
-                    tagihan?.let { listTagihan.add(it) }
+                if (snapshot.exists() && snapshot.childrenCount > 0) {
+                    // Jika data ada
+                    for (data in snapshot.children) {
+                        val tagihan = data.getValue(ModelTagihan::class.java)
+                        tagihan?.let { listTagihan.add(it) }
+                    }
+
+                    // Sembunyikan pesan "Data kosong" dan tampilkan RecyclerView
+                    tvEmptyData.visibility = View.GONE
+                    recyclerView.visibility = View.VISIBLE
+                } else {
+                    // Jika data kosong
+                    tvEmptyData.visibility = View.VISIBLE
+                    recyclerView.visibility = View.GONE
                 }
                 adapter.notifyDataSetChanged()
             }
