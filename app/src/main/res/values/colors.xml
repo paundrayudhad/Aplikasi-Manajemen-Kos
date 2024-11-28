@@ -16,4 +16,11 @@
     <color name="primary_orange">#F57F17</color>
     <color name="textwhite">#FFFFFF</color>
     <color name="textblack">#000000</color>
+    <color name="dividerColor">#E0E0E0</color> <!-- Warna abu-abu muda -->
+    <color name="cardBackground">#FFFFFF</color>
+    <color name="textColorPrimary">#000000</color>
+    <color name="buttonGreen">#3FA34D</color>
+    <color name="buttonRed">#6B0504</color>
+    <color name="text_gray">#808080</color>
+
 </resources>

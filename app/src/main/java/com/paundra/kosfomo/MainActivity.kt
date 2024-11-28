@@ -17,8 +17,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tagihanRef: DatabaseReference
     lateinit var cvManagepenghuni : CardView
     lateinit var cvManageKamar : CardView
-    lateinit var cvRiwayat : CardView
     lateinit var cvBuatTagihan : CardView
+    lateinit var cvLihat : CardView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -43,10 +43,10 @@ class MainActivity : AppCompatActivity() {
             val keMenuBuat = Intent(this@MainActivity, BuatTagihanActivity::class.java)
             startActivity(keMenuBuat)
         }
-        cvRiwayat = findViewById(R.id.cvBuatTagihan2)
-        cvRiwayat.setOnClickListener{
-            val keMenuRiwayat = Intent(this@MainActivity, TagihanActivity::class.java)
-            startActivity(keMenuRiwayat)
+        cvLihat = findViewById(R.id.cvBuatTagihan2)
+        cvLihat.setOnClickListener{
+            val keTagihan = Intent(this@MainActivity, TagihanActivity::class.java)
+            startActivity(keTagihan)
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->

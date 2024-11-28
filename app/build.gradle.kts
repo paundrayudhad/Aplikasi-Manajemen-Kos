@@ -45,6 +45,7 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
+    implementation("com.airbnb.android:lottie:5.2.0")
     implementation(libs.androidx.constraintlayout)
     implementation(libs.firebase.database)
     implementation(libs.androidx.recyclerview)

@@ -20,8 +20,6 @@ class TagihanAdapter(
     private val onEditClicked: (ModelTagihan) -> Unit,
     private val onDeleteClicked: (ModelTagihan) -> Unit,
     private val onStatusUpdated: (ModelTagihan) -> Unit, // Tambahkan callback untuk update status
-    private val kamarRef: DatabaseReference,
-    private val penghuniRef: DatabaseReference
 ) : RecyclerView.Adapter<TagihanAdapter.TagihanViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TagihanViewHolder {
@@ -31,7 +29,7 @@ class TagihanAdapter(
 
     override fun onBindViewHolder(holder: TagihanViewHolder, position: Int) {
         val tagihan = listTagihan[position]
-        holder.bind(tagihan, position)
+        holder.bind(tagihan)
     }
 
     override fun getItemCount(): Int = listTagihan.size
@@ -44,40 +42,19 @@ class TagihanAdapter(
         private val btnEdit: Button = itemView.findViewById(R.id.btnEdit)
         private val btnDelete: Button = itemView.findViewById(R.id.btnDelete)
 
-        fun bind(tagihan: ModelTagihan, position: Int) {
-            // Fetch Nama Kamar
-            kamarRef.child(tagihan.kamarId ?: "").addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    val namaKamar = snapshot.child("namaKamar").getValue(String::class.java) ?: "Kamar Tidak Diketahui"
-                    tvNamaKamar.text = "Nama Kamar : "+ namaKamar
-                }
-
-                override fun onCancelled(error: DatabaseError) {
-                    tvNamaKamar.text = "Error"
-                }
-            })
-
-            // Fetch Nama Penghuni
-            penghuniRef.child(tagihan.penghuniId ?: "").addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    val namaPenghuni = snapshot.child("nama").getValue(String::class.java) ?: "Penghuni Tidak Diketahui"
-                    tvNamaPenghuni.text = "Nama Penghuni : "+namaPenghuni
-                }
-
-                override fun onCancelled(error: DatabaseError) {
-                    tvNamaPenghuni.text = "Error"
-                }
-            })
-            tvStatusKamar.text = "Tanggal Tenggat : " + tagihan.tanggalTenggat
+        fun bind(tagihan: ModelTagihan) {
+            tvNamaKamar.text = "Nama Kamar: ${tagihan.kamarId ?: "Tidak Diketahui"}"
+            tvNamaPenghuni.text = "Nama Penghuni: ${tagihan.namaPenghuni ?: "Tidak Diketahui"}"
+            tvStatusKamar.text = "Tanggal Tenggat: ${tagihan.tanggalTenggat ?: "-"}"
             tvHargaKamar.text = "Rp ${tagihan.harga?.toInt() ?: 0}"
+
             if (tagihan.statusTagihan == "Sudah Bayar") {
                 btnEdit.text = "Sudah Bayar"
-                btnEdit.setBackgroundColor(android.graphics.Color.parseColor("#3FA34D")) // Green color
+                btnEdit.setBackgroundColor(android.graphics.Color.parseColor("#3FA34D")) // Green
             } else {
                 btnEdit.text = "Belum Bayar"
-                btnEdit.setBackgroundColor(android.graphics.Color.parseColor("#FF0000")) // Red color
+                btnEdit.setBackgroundColor(android.graphics.Color.parseColor("#FF0000")) // Red
             }
-
 
             btnEdit.setOnLongClickListener {
                 showStatusUpdateDialog(tagihan)
@@ -85,9 +62,10 @@ class TagihanAdapter(
             }
 
             btnDelete.setOnClickListener {
-                showDeleteConfirmation(tagihan, position)
+                showDeleteConfirmation(tagihan, adapterPosition)
             }
         }
+
 
         private fun showStatusUpdateDialog(tagihan: ModelTagihan) {
             val options = arrayOf("Sudah Bayar", "Belum Bayar")

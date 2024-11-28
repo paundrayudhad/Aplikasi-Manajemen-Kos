@@ -51,7 +51,7 @@
             android:layout_marginVertical="15dp"
             android:background="@drawable/edittext_background"
             android:hint="Penghuni"
-            android:inputType="text" />
+            android:spinnerMode="dialog" />
 
         <!-- Input ID Kamar -->
         <Spinner
@@ -62,7 +62,7 @@
             android:layout_marginVertical="15dp"
             android:layout_height="48dp"
             android:hint="Kamar"
-            android:inputType="text" />
+            android:spinnerMode="dialog" />
 
         <!-- Input Harga -->
         <EditText

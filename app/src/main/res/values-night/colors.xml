@@ -6,4 +6,9 @@
     <color name="btnedit">#D1A534</color> <!-- Warna tombol edit yang lebih lembut untuk mode malam -->
     <color name="textwhite">#000000</color>
     <color name="textblack">#ffffff</color>
+    <color name="cardBackground">#121212</color>
+    <color name="textColorPrimary">#FFFFFF</color>
+    <color name="buttonGreen">#2E7D32</color>
+    <color name="buttonRed">#B71C1C</color>
+
 </resources>

@@ -35,10 +35,7 @@ class TagihanActivity : AppCompatActivity() {
             },
             onStatusUpdated = { updatedTagihan ->
                 updateStatusInFirebase(updatedTagihan)
-            },
-            kamarRef = kamarRef,
-            penghuniRef = penghuniRef
-
+            }
         )
 
         recyclerView.adapter = adapter

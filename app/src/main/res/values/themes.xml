@@ -1,10 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.KosFomo" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <!-- Base application theme for both day and night mode -->
+    <style name="Base.Theme.KosFomo" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <!-- Example: <item name="colorPrimary">@color/my_primary</item> -->
     </style>
 
+    <!-- Theme for both Day and Night Mode -->
     <style name="Theme.KosFomo" parent="Base.Theme.KosFomo" />
 
     <style name="Theme.KosFomo.NoActionBar">
@@ -12,10 +13,12 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.KosFomo.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.KosFomo.AppBarOverlay" parent="ThemeOverlay.Material3.Dark.ActionBar" />
 
-    <style name="Theme.KosFomo.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.KosFomo.PopupOverlay" parent="ThemeOverlay.Material3.Light" />
+
+    <!-- Background for both Day and Night Mode -->
     <style name="bgheader">
-        <item name="android:src">@drawable/waves_gradient</item>
+        <item name="android:src">@drawable/waves_gradient</item> <!-- Same background image for both modes -->
     </style>
 </resources>

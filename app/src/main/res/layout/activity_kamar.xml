@@ -16,7 +16,7 @@
             android:id="@+id/btnAddKamar"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:textColor="@color/black"
+            android:textColor="@color/textwhite"
             android:backgroundTint="@color/blue"
             android:textSize="20sp"
             android:textStyle="bold"

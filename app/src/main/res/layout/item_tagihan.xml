@@ -1,86 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
     android:backgroundTint="@color/white"
-    android:outlineAmbientShadowColor="#3E7CB1"
-    android:background="@drawable/shadow_background"
-    app:cardCornerRadius="0dp"
-    android:layout_margin="10dp">
+    android:padding="12dp">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:weightSum="3"
-        android:padding="16dp">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
 
+        <!-- Nama Kamar -->
+        <TextView
+            android:id="@+id/tvNamaKamar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama Kamar"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Nama Penghuni -->
+        <TextView
+            android:id="@+id/tvNamaPenghuni"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama Penghuni"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Tanggal Tenggat -->
+        <TextView
+            android:id="@+id/tvStatusKamar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tanggal Tenggat"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Harga Kamar -->
+        <TextView
+            android:id="@+id/tvHargaKamar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rp 1,000,000"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Tombol Aksi -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="1">
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnEdit"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:minWidth="0dp"
+                android:minHeight="48dp"
+                android:maxHeight="48dp"
+                android:backgroundTint="#3FA34D"
+                android:drawableEnd="@drawable/creditcard"
+                android:drawableTint="@color/white"
+                android:text="Sudah Bayar"
+                android:textColor="@color/white" />
 
-            <TextView
-                android:id="@+id/tvNamaKamar"
-                android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/btnDelete"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Nama Kamar"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:layout_weight="1"
+                android:backgroundTint="#6B0504"
+                android:textColor="@color/white"
+                android:drawableTint="@color/white"
+                android:text="Hapus"
+                android:drawableEnd="@drawable/delete"/>
 
-            <TextView
-                android:id="@+id/tvNamaPenghuni"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Penghuni"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/tvStatusKamar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Penghuni"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/tvHargaKamar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Rp 1000000"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_gravity="center_vertical"
-                android:orientation="horizontal">
-                <Button
-                    android:id="@+id/btnEdit"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:backgroundTint="#3FA34D"
-                    android:text="Sudah Bayar"
-                    android:textColor="@color/white"
-                    android:drawableTint="@color/white"
-                    android:drawableEnd="@drawable/creditcard"/>
-
-                <Button
-                    android:id="@+id/btnDelete"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:backgroundTint="#6B0504"
-                    android:textColor="@color/white"
-                    android:drawableTint="@color/white"
-                    android:text="Hapus"
-                    android:drawableEnd="@drawable/delete"/>
-
-            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

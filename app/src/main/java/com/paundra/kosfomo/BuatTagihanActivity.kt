@@ -70,11 +70,11 @@ class BuatTagihanActivity : AppCompatActivity() {
     // Inisialisasi Spinner dengan Adapter
     private fun initSpinnerAdapter() {
         val penghuniAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, penghuniList)
-        penghuniAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        penghuniAdapter.setDropDownViewResource(android.R.layout.select_dialog_multichoice)
         spIdPenghuni.adapter = penghuniAdapter
 
         val kamarAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, kamarList)
-        kamarAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        kamarAdapter.setDropDownViewResource(android.R.layout.select_dialog_multichoice)
         spIdkamar.adapter = kamarAdapter
     }
 
@@ -147,7 +147,15 @@ class BuatTagihanActivity : AppCompatActivity() {
         }
 
         val tagihanId = database.getReference("tagihan").push().key ?: return
-        val tagihan = ModelTagihan(tagihanId, penghuni.id, kamar.idKamar, harga, tanggal, status)
+        val tagihan = ModelTagihan(
+            id = tagihanId,
+            penghuniId = penghuni.id,
+            namaPenghuni = penghuni.nama,
+            kamarId = kamar.idKamar,
+            harga = harga,
+            tanggalTenggat = tanggal,
+            statusTagihan = status
+        )
 
         database.getReference("tagihan").child(tagihanId).setValue(tagihan)
             .addOnSuccessListener {
@@ -155,8 +163,8 @@ class BuatTagihanActivity : AppCompatActivity() {
                 finish()
             }
             .addOnFailureListener { showToast("Gagal menambahkan tagihan.") }
-
     }
+
 
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
