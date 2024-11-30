@@ -3,7 +3,6 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:outlineAmbientShadowColor="#3E7CB1"
-    android:backgroundTint="@color/white"
     app:cardElevation="8dp"
     android:background="@drawable/shadow_background"
     android:layout_margin="10dp">
@@ -23,14 +22,14 @@
         android:layout_height="wrap_content"
         android:text="Nama Penghuni"
         android:textSize="18sp"
-        android:textColor="@color/black"
+        android:textColor="@color/textblack"
         android:textStyle="bold" />
     <TextView
         android:id="@+id/tvKontakPenghuni"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Kontak"
-        android:textColor="@color/black"
+        android:textColor="@color/textblack"
         android:textSize="16sp" />
         <LinearLayout
             android:layout_width="match_parent"
@@ -45,8 +44,8 @@
                 android:layout_weight="1"
                 android:backgroundTint="#E6AF2E"
                 android:text="Edit"
-                android:textColor="@color/black"
-                android:drawableTint="@color/black"
+                android:textColor="@color/textblack"
+                android:drawableTint="@color/textblack"
                 android:drawableEnd="@drawable/edit"/>
 
             <Button

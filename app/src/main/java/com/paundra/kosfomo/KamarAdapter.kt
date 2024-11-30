@@ -44,7 +44,7 @@ class KamarAdapter(
             holder.penghuniTextView.text = kamar.penghuni
         }
         holder.statusTextView.text = kamar.status
-        holder.hargaTextView.text = kamar.harga.toString()
+        holder.hargaTextView.text = "Rp. "+kamar.harga.toString()
         holder.btnEdit.setOnClickListener {
             showEditDialog(kamar, position)
         }

@@ -48,7 +48,7 @@ class BuatTagihanActivity : AppCompatActivity() {
         spIdkamar.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: android.view.View?, position: Int, id: Long) {
                 val selectedKamar = kamarList[position]
-                etHarga.setText(selectedKamar.harga.toString()) // Isi harga kamar ke EditText
+                etHarga.setText("Rp "+selectedKamar.harga.toString()) // Isi harga kamar ke EditText
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {

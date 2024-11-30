@@ -7,10 +7,12 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     tools:context=".BuatTagihanActivity">
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="250dp">
@@ -19,7 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 style="@style/bgheader"
-                android:scaleType="centerCrop"/>
+                android:scaleType="centerCrop" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -34,71 +36,77 @@
                     android:text="Buat Tagihan"
                     android:textSize="28sp"
                     android:textColor="@color/textblack"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </LinearLayout>
         </FrameLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginHorizontal="10dp">
 
-        <Spinner
-            android:id="@+id/spIdPenghuni"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:paddingHorizontal="10dp"
-            android:layout_marginVertical="15dp"
-            android:background="@drawable/edittext_background"
-            android:hint="Penghuni"
-            android:spinnerMode="dialog" />
+            <Spinner
+                android:id="@+id/spIdPenghuni"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:paddingHorizontal="10dp"
+                android:background="@drawable/edittext_background"
+                android:layout_marginVertical="15dp"
+                android:hint="Penghuni"
+                android:spinnerMode="dialog" />
 
-        <!-- Input ID Kamar -->
-        <Spinner
-            android:id="@+id/spIdKamar"
-            android:background="@drawable/edittext_background"
-            android:paddingHorizontal="10dp"
-            android:layout_width="match_parent"
-            android:layout_marginVertical="15dp"
-            android:layout_height="48dp"
-            android:hint="Kamar"
-            android:spinnerMode="dialog" />
+            <Spinner
+                android:id="@+id/spIdKamar"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:paddingHorizontal="10dp"
+                android:layout_marginVertical="15dp"
+                android:background="@drawable/edittext_background"
+                android:hint="Kamar"
+                android:spinnerMode="dialog" />
 
-        <!-- Input Harga -->
-        <EditText
-            android:id="@+id/etHarga"
-            android:layout_width="match_parent"
-            android:background="@drawable/edittext_background"
-            android:paddingHorizontal="10dp"
-            android:layout_marginVertical="15dp"
-            android:layout_height="48dp"
-            android:focusable="false"
-            android:hint="Harga"
-            android:inputType="numberDecimal" />
+            <!-- Input Harga -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="15dp"
+                android:hint="Harga">
 
-        <!-- Input Tanggal -->
-        <EditText
-            android:id="@+id/etTanggal"
-            android:layout_marginVertical="15dp"
-            android:background="@drawable/edittext_background"
-            android:paddingHorizontal="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:hint="Tanggal Tenggat (yyyy-MM-dd)"
-            android:focusable="false"
-            android:inputType="none" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etHarga"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:paddingHorizontal="10dp"
+                    android:focusable="false"
+                    android:inputType="numberDecimal" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Button Tambah -->
-        <Button
-            android:id="@+id/btnTambahTagihan"
-            android:layout_width="match_parent"
-            android:textColor="@color/white"
-            android:layout_height="60dp"
-            android:backgroundTint="@color/primary_red"
-            android:text="Tambah Tagihan"
-            android:layout_marginTop="16dp" />
+            <!-- Input Tanggal -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="15dp"
+                android:hint="Tanggal Tenggat (yyyy-MM-dd)">
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etTanggal"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:paddingHorizontal="10dp"
+                    android:focusable="false"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Button Tambah -->
+            <Button
+                android:id="@+id/btnTambahTagihan"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/primary_red"
+                android:text="Tambah Tagihan"
+                android:textColor="@color/white"
+                android:layout_marginTop="16dp" />
+        </LinearLayout>
     </LinearLayout>
-    </LinearLayout>
-
 </ScrollView>

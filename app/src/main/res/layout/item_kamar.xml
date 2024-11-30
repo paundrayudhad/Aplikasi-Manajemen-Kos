@@ -3,7 +3,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:backgroundTint="@color/white"
         android:outlineAmbientShadowColor="#3E7CB1"
         app:cardCornerRadius="0dp"
         android:layout_margin="10dp">
@@ -24,7 +23,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Nama Kamar"
-                    android:textColor="@color/black"
+                    android:textColor="@color/textblack"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -33,7 +32,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Penghuni"
-                    android:textColor="@color/black"
+                    android:textColor="@color/textblack"
                     android:textSize="16sp" />
 
                 <TextView
@@ -41,7 +40,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Penghuni"
-                    android:textColor="@color/black"
+                    android:textColor="@color/textblack"
                     android:textSize="16sp" />
 
                 <TextView
@@ -49,7 +48,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Rp 1000000"
-                    android:textColor="@color/black"
+                    android:textColor="@color/textblack"
                     android:textSize="16sp" />
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -64,8 +63,8 @@
                         android:layout_weight="1"
                         android:backgroundTint="#E6AF2E"
                         android:text="Edit"
-                        android:textColor="@color/black"
-                        android:drawableTint="@color/black"
+                        android:textColor="@color/textblack"
+                        android:drawableTint="@color/textblack"
                         android:drawableEnd="@drawable/edit"/>
 
                     <Button

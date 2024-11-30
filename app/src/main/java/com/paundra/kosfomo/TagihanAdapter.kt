@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 class TagihanAdapter(
@@ -43,7 +44,30 @@ class TagihanAdapter(
         private val btnDelete: Button = itemView.findViewById(R.id.btnDelete)
 
         fun bind(tagihan: ModelTagihan) {
-            tvNamaKamar.text = "Nama Kamar: ${tagihan.kamarId ?: "Tidak Diketahui"}"
+            // Ambil nama kamar dari database berdasarkan kamarId
+            val kamarId = tagihan.kamarId
+            if (!kamarId.isNullOrEmpty()) {
+                val kamarRef: DatabaseReference = FirebaseDatabase.getInstance("https://fomokos-4320e-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("kamar").child(kamarId)
+                kamarRef.addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        // Ambil data kamar dan konversikan ke ModelKamar
+                        val kamar = snapshot.getValue(Kamar::class.java)
+                        if (kamar != null && !kamar.namaKamar.isNullOrEmpty()) {
+                            tvNamaKamar.text = "Nama Kamar: ${kamar.namaKamar}"
+                        } else {
+                            tvNamaKamar.text = "Nama Kamar: Tidak Diketahui"
+                        }
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        tvNamaKamar.text = "Nama Kamar: Gagal Memuat"
+                    }
+                })
+            } else {
+                tvNamaKamar.text = "Nama Kamar: Tidak Diketahui"
+            }
+
+
             tvNamaPenghuni.text = "Nama Penghuni: ${tagihan.namaPenghuni ?: "Tidak Diketahui"}"
             tvStatusKamar.text = "Tanggal Tenggat: ${tagihan.tanggalTenggat ?: "-"}"
             tvHargaKamar.text = "Rp ${tagihan.harga?.toInt() ?: 0}"

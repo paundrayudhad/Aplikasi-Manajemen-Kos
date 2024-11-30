@@ -7,7 +7,6 @@
     android:layout_margin="10dp"
     app:cardCornerRadius="8dp"
     app:cardElevation="4dp"
-    android:backgroundTint="@color/white"
     android:padding="12dp">
 
     <LinearLayout
@@ -22,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nama Kamar"
-            android:textColor="@color/black"
+            android:textColor="@color/textblack"
             android:textSize="18sp"
             android:textStyle="bold"
             android:layout_marginBottom="4dp" />
@@ -33,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nama Penghuni"
-            android:textColor="@color/black"
+            android:textColor="@color/textblack"
             android:textSize="16sp"
             android:layout_marginBottom="4dp" />
 
@@ -43,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tanggal Tenggat"
-            android:textColor="@color/black"
+            android:textColor="@color/textblack"
             android:textSize="16sp"
             android:layout_marginBottom="4dp" />
 
@@ -53,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Rp 1,000,000"
-            android:textColor="@color/black"
+            android:textColor="@color/textblack"
             android:textSize="16sp"
             android:layout_marginBottom="12dp" />
 

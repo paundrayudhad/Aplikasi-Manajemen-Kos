@@ -48,6 +48,7 @@
             android:id="@+id/etNoHP"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:maxLength="13"
             android:hint="No HP Aktif"
             android:inputType="phone"/>
     </com.google.android.material.textfield.TextInputLayout>
