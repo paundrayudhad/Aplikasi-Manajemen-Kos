@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.paundra.kosfomo"
+    namespace = "com.paundra.managekos"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.paundra.kosfomo"
+        applicationId = "com.paundra.managekos"
         minSdk = 26
         targetSdk = 34
         versionCode = 1

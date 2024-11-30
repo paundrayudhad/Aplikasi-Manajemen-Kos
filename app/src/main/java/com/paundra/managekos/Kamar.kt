@@ -1,4 +1,4 @@
-package com.paundra.kosfomo
+package com.paundra.managekos
 
 class Kamar(
    var idKamar: String? = "",

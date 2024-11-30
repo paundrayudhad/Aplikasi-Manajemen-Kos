@@ -1,4 +1,4 @@
-package com.paundra.kosfomo
+package com.paundra.managekos
 
 import android.os.Bundle
 import android.widget.ArrayAdapter

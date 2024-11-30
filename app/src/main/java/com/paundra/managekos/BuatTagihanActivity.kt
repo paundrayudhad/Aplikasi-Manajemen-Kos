@@ -1,4 +1,4 @@
-package com.paundra.kosfomo
+package com.paundra.managekos
 
 import android.app.DatePickerDialog
 import android.os.Bundle

@@ -22,5 +22,10 @@
     <color name="buttonGreen">#3FA34D</color>
     <color name="buttonRed">#6B0504</color>
     <color name="text_gray">#808080</color>
+        <color name="colorRed">#FF1F1F</color>
+        <color name="colorBlue">#2C89F3</color>
+        <color name="colorOrange">#F57F17</color>
+        <color name="colorGreen">#4CAF50</color>
+
 
 </resources>

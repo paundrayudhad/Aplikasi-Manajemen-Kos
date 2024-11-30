@@ -65,7 +65,7 @@
                 android:layout_columnWeight="1"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="8dp"
-                android:backgroundTint="#FF1F1F">
+                android:backgroundTint="@color/colorRed">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -100,7 +100,7 @@
                 android:layout_columnWeight="1"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="8dp"
-                android:backgroundTint="#2C89F3">
+                android:backgroundTint="@color/colorBlue">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -135,7 +135,7 @@
                 android:layout_columnWeight="1"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="8dp"
-                android:backgroundTint="#F57F17">
+                android:backgroundTint="@color/colorOrange">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -170,7 +170,7 @@
                 android:layout_columnWeight="1"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="8dp"
-                android:backgroundTint="#4CAF50">
+                android:backgroundTint="@color/colorGreen">
 
                 <LinearLayout
                     android:layout_width="match_parent"

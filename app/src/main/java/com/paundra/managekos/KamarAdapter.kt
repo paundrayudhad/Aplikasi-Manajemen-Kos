@@ -1,4 +1,4 @@
-package com.paundra.kosfomo
+package com.paundra.managekos
 
 import android.content.Context
 import android.view.LayoutInflater

@@ -10,5 +10,8 @@
     <color name="textColorPrimary">#FFFFFF</color>
     <color name="buttonGreen">#2E7D32</color>
     <color name="buttonRed">#B71C1C</color>
-
+    <color name="colorRed">#2C2C2C</color>
+    <color name="colorBlue">#1E3A8A</color>
+    <color name="colorOrange">#78350F</color>
+    <color name="colorGreen">#1E4620</color>
 </resources>

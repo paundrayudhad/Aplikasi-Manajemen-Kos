@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="com.paundra.kosfomo" />
-                  <option name="mobileSdkAppId" value="1:331463419249:android:51aa33aeeba85daa6cc2d0" />
-                  <option name="projectId" value="fomokos-4320e" />
-                  <option name="projectNumber" value="331463419249" />
+                  <option name="appId" value="PLACEHOLDER" />
+                  <option name="mobileSdkAppId" value="" />
+                  <option name="projectId" value="" />
+                  <option name="projectNumber" value="" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
